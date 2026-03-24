@@ -1,12 +1,13 @@
 package loutre.imgui.lwjgl2;
 
-import java.nio.ByteBuffer;
-
 import imgui.ImDrawData;
 import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.ImVec4;
 import imgui.type.ImInt;
+
+import java.nio.ByteBuffer;
+
 import static org.lwjgl.opengl.GL11.*;
 
 public class ImGuiLWJGL2 {
@@ -72,9 +73,9 @@ public class ImGuiLWJGL2 {
 
     public void renderDrawData(ImDrawData drawData) {
         int fbWidth =
-                (int)(drawData.getDisplaySizeX() * drawData.getFramebufferScaleX());
+                (int) (drawData.getDisplaySizeX() * drawData.getFramebufferScaleX());
         int fbHeight =
-                (int)(drawData.getDisplaySizeY() * drawData.getFramebufferScaleY());
+                (int) (drawData.getDisplaySizeY() * drawData.getFramebufferScaleY());
 
         float clipoffx = drawData.getDisplayPosX();
         float clipoffy = drawData.getDisplayPosY();
@@ -109,16 +110,16 @@ public class ImGuiLWJGL2 {
                 if (c2x <= c1x || c2y <= c1y)
                     continue;
                 glScissor(
-                        (int)c1x, (int)(fbHeight - c2y),
-                        (int)(c2x - c1x), (int)(c2y - c1y)
+                        (int) c1x, (int) (fbHeight - c2y),
+                        (int) (c2x - c1x), (int) (c2y - c1y)
                 );
 
-                int tex = drawData.getCmdListCmdBufferTextureId(i, j);
+                long tex = drawData.getCmdListCmdBufferTextureId(i, j);
                 int elemc = drawData.getCmdListCmdBufferElemCount(i, j);
                 int idxoff = drawData.getCmdListCmdBufferIdxOffset(i, j);
                 int type = idxsize == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT;
 
-                glBindTexture(GL_TEXTURE_2D, tex);
+                glBindTexture(GL_TEXTURE_2D, (int) tex);
                 idxbuffer.position(idxoff * idxsize);
                 glDrawElements(GL_TRIANGLES, elemc, type, idxbuffer);
             }

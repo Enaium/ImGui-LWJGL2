@@ -1,0 +1,9 @@
+[versions]
+imgui = "1.90.0"
+
+[libraries]
+imgui-java-binding = { module = "io.github.spair:imgui-java-binding", version.ref = "imgui" }
+imgui-java-lwjgl3 = { module = "io.github.spair:imgui-java-lwjgl3", version.ref = "imgui" }
+imgui-java-natives-windows = { module = "io.github.spair:imgui-java-natives-windows", version.ref = "imgui" }
+imgui-java-natives-linux = { module = "io.github.spair:imgui-java-natives-linux", version.ref = "imgui" }
+imgui-java-natives-macos = { module = "io.github.spair:imgui-java-natives-macos", version.ref = "imgui" }
