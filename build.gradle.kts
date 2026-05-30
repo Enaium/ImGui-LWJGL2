@@ -16,7 +16,13 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 repositories {
-    mavenCentral()
+    mavenCentral {
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+        }
+    }
 }
 
 dependencies {

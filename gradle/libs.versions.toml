@@ -1,5 +1,5 @@
 [versions]
-imgui = "1.90.0"
+imgui = "1.92.0"
 
 [libraries]
 imgui-java-binding = { module = "io.github.spair:imgui-java-binding", version.ref = "imgui" }
